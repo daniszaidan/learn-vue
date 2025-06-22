@@ -1,20 +1,37 @@
 <script setup>
-import { useFlash } from '@/composables/useFlash'
-import { ref } from 'vue'
+// import { ref, watch } from 'vue'
+import { useStorage } from '@/composables/useStorage'
 
-const message = ref('Hello hello')
-const { flash } = useFlash()
+let food = useStorage('food')
+let age = useStorage('age')
 
-setTimeout(() => {
-  message.value = 'change hello'
-}, 5000)
+// let food = ref(localStorage.getItem('food'))
+// let age = ref(localStorage.getItem('age'))
+
+// watch(food, (value) => {
+//   write('food', value)
+// })
+
+// watch(age, (value) => {
+//   write('age', value)
+// })
+
+// const write = (key, value) => {
+//   localStorage.setItem(key, value)
+// }
+
+// setTimeout(() => {
+//   food.value = 'lorem'
+// }, 3000)
 </script>
 
 <template>
   <main>
-    <p>{{ message }}</p>
-    <input type="text" v-model="message" />
+    <p>{{ food }}</p>
+    <!-- <input type="text" v-model="food" @input="write('food', food)" /> -->
+    <input type="text" v-model="food" />
     <br />
-    <button @click="flash('test')">click</button>
+    <p>{{ age }}</p>
+    <input type="text" v-model="age" />
   </main>
 </template>
