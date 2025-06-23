@@ -1,4 +1,5 @@
 <script setup>
+import { state } from '@/stores/quiz'
 import { inject } from 'vue'
 
 defineProps({
@@ -27,7 +28,8 @@ let { name, changeName } = inject('user')
 
 <template>
   <p>{{ name }}</p>
-  <button @click="changeName">change</button>
+  <button @click="changeName">change name</button>
+  <button @click="state.name = 'lorem'">change quiz</button>
   <textarea @keydown.tab.prevent="onTabPress" @keyup="update" v-text="modelValue" />
 </template>
 
