@@ -1,12 +1,21 @@
 <script setup>
 import Textarea from '@/components/Textarea.vue'
-import { ref } from 'vue'
+import { provide, ref } from 'vue'
 
 let comment = ref('test value')
+
+let name = ref('john')
+// provide('user', name)
+provide('user', {
+  name: name,
+  changeName: () => {
+    name.value = 'Changed'
+  },
+})
 </script>
 
 <template>
-  <form>
+  <div>
     <Textarea v-model:comment="comment" />
-  </form>
+  </div>
 </template>

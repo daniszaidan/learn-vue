@@ -1,4 +1,6 @@
 <script setup>
+import { inject } from 'vue'
+
 defineProps({
   modelValue: String,
 })
@@ -19,9 +21,13 @@ const onTabPress = (event) => {
 const update = (event) => {
   emit('update:modelValue', event.target.value)
 }
+
+let { name, changeName } = inject('user')
 </script>
 
 <template>
+  <p>{{ name }}</p>
+  <button @click="changeName">change</button>
   <textarea @keydown.tab.prevent="onTabPress" @keyup="update" v-text="modelValue" />
 </template>
 
