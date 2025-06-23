@@ -1,4 +1,5 @@
 <script setup>
+import Counter from '@/components/Counter.vue'
 import Textarea from '@/components/Textarea.vue'
 import { state } from '@/stores/quiz'
 import { provide, ref } from 'vue'
@@ -19,5 +20,6 @@ provide('user', {
   <div>
     <p>{{ state.name }}</p>
     <Textarea v-model:comment="comment" />
+    <Counter />
   </div>
 </template>
