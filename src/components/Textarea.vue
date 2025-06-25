@@ -23,7 +23,7 @@ const update = (event) => {
   emit('update:modelValue', event.target.value)
 }
 
-let { name, changeName } = inject('user')
+let { name, changeName } = inject('key')
 </script>
 
 <template>
